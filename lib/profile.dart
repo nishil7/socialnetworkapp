@@ -234,7 +234,7 @@ class _ProfileState extends State<Profile> {
             Padding(
               padding: EdgeInsets.only(top: 20.0),
               child: Text(
-                "Nothing To Show",
+                "No Post Upload",
                 style: TextStyle(
                   color: Colors.redAccent,
                   fontSize: 40.0,
