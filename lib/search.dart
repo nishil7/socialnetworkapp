@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_social/profile.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_social/widgets/progress.dart';
 import 'package:flutter_social/homescreen.dart';
@@ -98,6 +99,7 @@ class _SearchState extends State<Search> {
     );
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,6 +116,13 @@ class UserResult extends StatelessWidget {
 
   UserResult(this.user);
 
+  show_Profile(context){
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => Profile(profile_Id:user.id )));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -121,7 +130,7 @@ class UserResult extends StatelessWidget {
       child: Column(
         children: <Widget>[
           GestureDetector(
-            onTap: () => print('tapped'),
+            onTap: () => show_Profile(context),
             child: ListTile(
               leading: CircleAvatar(
                 backgroundColor: Colors.grey,

@@ -7,6 +7,7 @@ AppBar header(context, {String title=""}) {
       style: TextStyle(
         color: Colors.white,
         fontSize:40.0,
+        overflow: TextOverflow.ellipsis,
       ),
     ),
     centerTitle: true,

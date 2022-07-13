@@ -10,6 +10,7 @@ import 'package:flutter_social/widgets/progress.dart';
 
 import '../homescreen.dart';
 import '../model/user.dart';
+import '../profile.dart';
 
 class Post extends StatefulWidget {
   final String postId;
@@ -94,6 +95,12 @@ class _PostState extends State<Post> {
     required this.likeCount,
     required this.isLiked
   });
+  show_Profile(context,String user_id){
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => Profile(profile_Id: user_id)));
+  }
 
   buildPostHeader() {
     return FutureBuilder<DocumentSnapshot>(
@@ -109,7 +116,7 @@ class _PostState extends State<Post> {
             backgroundColor: Colors.grey,
           ),
           title: GestureDetector(
-            onTap: () => print('showing profile'),
+            onTap: () => show_Profile(context,user.id),
             child: Text(
               user.username,
               style: TextStyle(
@@ -189,6 +196,7 @@ class _PostState extends State<Post> {
         "postId": postId,
         "mediaUrl": mediaUrl,
         "timestamp": timestamp,
+        "commentData": '',
       });
     }
   }
